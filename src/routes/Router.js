@@ -1,5 +1,4 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Header from "../components/Header";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
 import HomePage from "../pages/HomePage/HomePage";
 import PokedexPage from "../pages/PokedexPage/PokedexPage";

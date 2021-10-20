@@ -1,9 +1,29 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
 import Header from "../../components/Header";
 import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory } from './styles'
 
 function HomePage() {
+    const [id, setId] = useState("1")
+
+    const url = "https://pokeapi.co/api/v2/pokemon/"
+    const getPokemons = () => {
+        axios.get(url).then((res) => {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
+    const getDetailPokemon = (id) => {
+        axios.get(url + id).then((res) => {
+            console.log(res)
+        }).catch((err) => {
+            console.log(err)
+        })
+    }
+
 
     const history = useHistory()
 
@@ -14,9 +34,9 @@ function HomePage() {
     return (
         <div>
             <Header />
-
             <HomePageContainer>
-
+                <button onClick={() => getDetailPokemon(id)}>teste detail</button>
+                <button onClick={getPokemons}>teste pokemons</button>
                 <h1>Base de Pokémons</h1>
                 <SelectCategory>
                     <option>Categoria</option>

@@ -13,7 +13,7 @@ const App = () => {
   const setters = { setPokemons, setPokemonDetails, setPokemonPokedex }
 
   return (
-    <GlobalContext.Provider value={ states, setters }>
+    <GlobalContext.Provider value={{ states, setters }}>
       <GlobalStyle />
       <Router />
     </GlobalContext.Provider>

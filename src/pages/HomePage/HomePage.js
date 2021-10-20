@@ -8,7 +8,7 @@ function HomePage() {
 
     const { states, setters } = useContext(GlobalContext)
 
-    const { pokemons, pokemonDetails, pokemonsPokedex } = states
+    const { pokemons ,pokemonDetails, pokemonsPokedex } = states
     const { setPokemons, setPokemonDetails, setPokemonPokedex } = setters
 
     const history = useHistory()

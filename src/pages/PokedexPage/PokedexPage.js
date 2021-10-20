@@ -15,26 +15,29 @@ function PokedexPage() {
     }
 
     return (
-        <PokedexPageContainer>
-            <BarContainer>
-                <h1>Pokédex</h1>
-                <NumContainer>
-                    <img src={pokeballIcon} />
-                    <p>30</p>
-                </NumContainer>
-            </BarContainer>
-            <MainContainer>
-                <PokemonContainer>
-                    <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6.svg"} alt={"Foto do Charizard"} />
-                    <button onClick={goToDetails}>Detalhes</button>
-                </PokemonContainer>
-                <ListPokedexContainer>
-                    <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/6.png"}/>
-                    <p>Charizard</p>
-                    <img src={pokeballWhiteIcon}/>
-                </ListPokedexContainer>
-            </MainContainer>
-        </PokedexPageContainer>
+        <div>
+            <Header />
+            <PokedexPageContainer>
+                <BarContainer>
+                    <h1>Pokédex</h1>
+                    <NumContainer>
+                        <img src={pokeballIcon} />
+                        <p>30</p>
+                    </NumContainer>
+                </BarContainer>
+                <MainContainer>
+                    <PokemonContainer>
+                        <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/6.svg"} alt={"Foto do Charizard"} />
+                        <button onClick={goToDetails}>Detalhes</button>
+                    </PokemonContainer>
+                    <ListPokedexContainer>
+                        <img src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/6.png"}/>
+                        <p>Charizard</p>
+                        <img src={pokeballWhiteIcon}/>
+                    </ListPokedexContainer>
+                </MainContainer>
+            </PokedexPageContainer>
+        </div>
     )
 }
 

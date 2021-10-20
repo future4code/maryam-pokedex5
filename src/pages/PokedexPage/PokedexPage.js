@@ -3,18 +3,16 @@ import { useHistory } from "react-router";
 import Header from "../../components/Header";
 import pokeballIcon from "../../images/pokeball-icon.png"
 import { BarContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer } from "./styles";
-import pokeballWhiteIcon from "../../images/pokeballWhite-icon.png"
+import pokeballWhiteIcon from "../../images/pokeballWhite-icon.png";
+import {goToDetails} from '../../routes/Coordinator'
 
 
 function PokedexPage() {
 
     const history = useHistory()
 
-    const goToDetails = () => {
-        history.push("/details/:id")
-    }
-
     return (
+
         <div>
             <Header />
             <PokedexPageContainer>
@@ -38,6 +36,7 @@ function PokedexPage() {
                 </MainContainer>
             </PokedexPageContainer>
         </div>
+
     )
 }
 

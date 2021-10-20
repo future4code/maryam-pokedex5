@@ -1,24 +1,19 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router";
 import Header from "../../components/Header/Header";
 import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory } from './styles';
 import { goToDetails } from '../../routes/Coordinator';
-import { getDetailPokemon, getPokemons } from '../../services/requests';
-import Card from '../../components/HomeCard/HomeCard';
+import { getPokemons } from '../../services/requests';
+import HomeCard from '../../components/HomeCard/HomeCard';
 import { GlobalContext } from "../../contexts/GlobalContext";
 
 
 function HomePage() {
     const [id, setId] = useState("1")
-    const [pokemons, setPokemons] = useState([])
-    const [poke, setPoke] = useState('')
     const { states, setters } = useContext(GlobalContext)
     const { pokemons ,pokemonDetails, pokemonsPokedex } = states
     const { setPokemons, setPokemonDetails, setPokemonPokedex } = setters
-
-
-
     const history = useHistory()
 
     useEffect(() => {
@@ -28,7 +23,7 @@ function HomePage() {
     const renderPokemons = pokemons.map((pokemon) => {
         return (
             <SingleCardContainer>
-                <Card pokemon={pokemon} key={pokemon.url} />
+                <HomeCard pokemon={pokemon} key={pokemon.url} />
                 <p>{pokemon.name}</p>
                 <button onClick={() => goToDetails(history)}>Detalhes</button>
                 <button>Adicionar a Pokédex</button>
@@ -40,8 +35,6 @@ function HomePage() {
         <div>
             <Header />
             <HomePageContainer>
-                <button onClick={() => getDetailPokemon(id)}>teste detail</button>
-                <button /*onClick={getPokemons}*/>teste pokemons</button>
                 <h1>Base de Pokémons</h1>
                 <SelectCategory>
                     <option>Categoria</option>
@@ -49,12 +42,6 @@ function HomePage() {
                 </SelectCategory>
                 <CardsContainer>
                     {renderPokemons}
-                    {/* <SingleCardContainer>
-                        <img alt='foto pokemon' />
-                        <p>Nome</p>
-                        <button onClick={() =>goToDetails(history)}>Detalhes</button>
-                        <button>Adicionar a Pokédex</button>
-                    </SingleCardContainer> */}
                 </CardsContainer>
             </HomePageContainer>
         </div>

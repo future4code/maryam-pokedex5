@@ -1,20 +1,20 @@
 import { getDetailPokemon } from "../../services/requests";
 import { useState, useEffect } from "react";
-import ImagePokemon from './styles'
+import ImagePokemon from './styles';
 
 
 
 
-const Card = (props) => {
-    const [details, setDetails] = useState('')
+const HomeCard = (props) => {
+    const [imageDetail, setImageDetails] = useState('')
     useEffect(() => {
-        getDetailPokemon(props.pokemon.url, setDetails)
+        getDetailPokemon(props.pokemon.url, setImageDetails)
     }, [])
 
     return (
         <div>
-            <ImagePokemon src={details}/>
+            <ImagePokemon src={imageDetail}/>
         </div>
     )
 }
-export default Card
+export default HomeCard

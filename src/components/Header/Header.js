@@ -1,7 +1,7 @@
 import React from "react";
 import { HeaderContainer } from "./styles";
 import { useHistory } from "react-router";
-import { goToHome, goToPokedex } from "../routes/Coordinator";
+import { goToHome, goToPokedex } from "../../routes/Coordinator";
 
 
 const Header = () => {

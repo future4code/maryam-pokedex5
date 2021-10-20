@@ -1,6 +1,6 @@
 import React from "react";
 import { CardPhoto, CardPoderes, ContainerCarcter, ContainerDetail, ContainerTipo, TitleStatus } from "./styles";
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 
 function DetailsPage() {
     return (

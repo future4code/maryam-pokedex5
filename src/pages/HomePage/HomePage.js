@@ -1,14 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router";
 import Header from "../../components/Header";
+import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory } from './styles'
 
 function HomePage() {
 
     const history = useHistory()
-
-    const goToPokedex = () => {
-        history.push("/pokedex")
-    }
 
     const goToDetails = () => {
         history.push("/details/:id")
@@ -16,13 +13,62 @@ function HomePage() {
 
     return (
         <div>
-            <Header goToPokedex={goToPokedex}/>
-            <h1>Home Page</h1>
+            <Header />
 
-            <button onClick={goToDetails}>Detalhes</button>
-            <button>Adicionar</button>
-            
+            <HomePageContainer>
+
+                <h1>Base de Pokémons</h1>
+                <SelectCategory>
+                    <option>Categoria</option>
+                    <option>Fogo</option>
+                </SelectCategory>
+                <CardsContainer>
+                    <SingleCardContainer>
+                        <img alt='foto pokemon' />
+                        <p>Nome</p>
+                        <button onClick={goToDetails}>Detalhes</button>
+                        <button>Adicionar a Pokédex</button>
+                    </SingleCardContainer>
+
+                    <SingleCardContainer>
+                        <img alt='foto pokemon' />
+                        <p>Nome</p>
+                        <button onClick={goToDetails}>Detalhes</button>
+                        <button>Adicionar</button>
+                    </SingleCardContainer>
+
+                    <SingleCardContainer>
+                        <img alt='foto pokemon' />
+                        <p>Nome</p>
+                        <button onClick={goToDetails}>Detalhes</button>
+                        <button>Adicionar</button>
+                    </SingleCardContainer>
+
+                    <SingleCardContainer>
+                        <img alt='foto pokemon' />
+                        <p>Nome</p>
+                        <button onClick={goToDetails}>Detalhes</button>
+                        <button>Adicionar</button>
+                    </SingleCardContainer>
+
+                    <SingleCardContainer>
+                        <img alt='foto pokemon' />
+                        <p>Nome</p>
+                        <button onClick={goToDetails}>Detalhes</button>
+                        <button>Adicionar</button>
+                    </SingleCardContainer>
+
+                    <SingleCardContainer>
+                        <img alt='foto pokemon' />
+                        <p>Nome</p>
+                        <button onClick={goToDetails}>Detalhes</button>
+                        <button>Adicionar</button>
+                    </SingleCardContainer>
+
+                </CardsContainer>
+            </HomePageContainer>
         </div>
+
     )
 }
 

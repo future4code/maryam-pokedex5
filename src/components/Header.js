@@ -1,21 +1,31 @@
 import React from "react";
-import { HeaderContainer } from "./styles"
+import { HeaderContainer } from "./styles";
+import { useHistory } from "react-router";
 
-function Header(props) {
 
+const Header = () => {
+
+    const history = useHistory();
+
+    const goToPokedex = () => {
+        history.push("/pokedex")
+    }
+
+    const goToHomePage = () => {
+        history.push("/")
+        
+    }
+
+    console.log(history.location.pathname)
     return (
         <HeaderContainer>
-            <a onClick={props.goToHome}>
-                <img />
+            <a onClick={goToHomePage}>
+                <img alt="logo" />
                 PokeDev
             </a>
-
-            <button onClick={props.goToPokedex}>
-                Ir para PokéDex
-            </button>
-
+            {history.location.pathname === "/pokedex" ? <></> :<button onClick={goToPokedex}>Ir para PokéDex</button>}
         </HeaderContainer>
     )
 }
 
-export default Header
+export default Header;

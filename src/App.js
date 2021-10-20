@@ -1,8 +1,9 @@
 import React from "react";
 import Router from "./routes/Router"
-import GlobalStyle from "./styles/Global"
+import GlobalStyle from "./styles/Global";
 
-function App() {
+const App = () => {
+
   return (
     <div>
       <GlobalStyle />

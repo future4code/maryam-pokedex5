@@ -1,12 +1,23 @@
-import axios from "axios";
-import React, { useState } from "react";
+
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import Header from "../../components/Header";
-import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory } from './styles';
+import { GlobalContext } from "../../contexts/GlobalContext";
+import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory } from './styles'
+import axios from "axios";
 import {goToDetails} from '../../routes/Coordinator'
+
 
 function HomePage() {
     const [id, setId] = useState("1")
+
+
+    const { states, setters } = useContext(GlobalContext)
+
+    const { pokemons ,pokemonDetails, pokemonsPokedex } = states
+    const { setPokemons, setPokemonDetails, setPokemonPokedex } = setters
+
+
 
     const url = "https://pokeapi.co/api/v2/pokemon/"
     const getPokemons = () => {
@@ -16,6 +27,7 @@ function HomePage() {
             console.log(err)
         })
     }
+
 
     const getDetailPokemon = (id) => {
         axios.get(url + id).then((res) => {

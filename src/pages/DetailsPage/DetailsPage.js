@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CardPhoto, CardPoderes, ContainerCarcter, ContainerDetail, ContainerTipo, TitleStatus } from "./styles";
 import Header from "../../components/Header";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 function DetailsPage() {
+    const { states, setters } = useContext(GlobalContext)
+
+    const { pokemonDetails } = states
+    const { setPokemonDetails } = setters
+
     return (
         <div>
             <Header />

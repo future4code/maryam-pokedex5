@@ -5,13 +5,20 @@ import Header from "../../components/Header/Header";
 import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory } from './styles';
 import { goToDetails } from '../../routes/Coordinator';
 import { getDetailPokemon, getPokemons } from '../../services/requests';
-import Card from '../../components/HomeCard/HomeCard'
+import Card from '../../components/HomeCard/HomeCard';
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 
 function HomePage() {
     const [id, setId] = useState("1")
     const [pokemons, setPokemons] = useState([])
     const [poke, setPoke] = useState('')
+    const { states, setters } = useContext(GlobalContext)
+    const { pokemons ,pokemonDetails, pokemonsPokedex } = states
+    const { setPokemons, setPokemonDetails, setPokemonPokedex } = setters
+
+
+
     const history = useHistory()
 
     useEffect(() => {

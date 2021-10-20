@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import Header from "../../components/Header";
-import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory } from './styles'
+import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory } from './styles';
+import {goToDetails} from '../../routes/Coordinator'
 
 function HomePage() {
     const [id, setId] = useState("1")
@@ -27,10 +28,6 @@ function HomePage() {
 
     const history = useHistory()
 
-    const goToDetails = () => {
-        history.push("/details/:id")
-    }
-
     return (
         <div>
             <Header />
@@ -46,7 +43,7 @@ function HomePage() {
                     <SingleCardContainer>
                         <img alt='foto pokemon' />
                         <p>Nome</p>
-                        <button onClick={goToDetails}>Detalhes</button>
+                        <button onClick={() =>goToDetails(history)}>Detalhes</button>
                         <button>Adicionar a Pokédex</button>
                     </SingleCardContainer>
 

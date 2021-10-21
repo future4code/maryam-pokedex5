@@ -7,12 +7,12 @@ function DetailsPage() {
         <div>
             <Header />
             <ContainerDetail>
-                <h1>Bulbasaur</h1>
+                <h1>Ninetales</h1>
                 <CardPhoto>
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif" alt="Imagem pokemon de frente"/>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/38.gif" alt="Imagem pokemon de frente"/>
                 </CardPhoto>
                 <CardPhoto>
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/1.gif" alt="Imagem pokemon de costas" />
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/38.gif" alt="Imagem pokemon de costas" />
                 </CardPhoto>
                     <TitleStatus>
                         <h2>Status</h2>
@@ -40,12 +40,15 @@ function DetailsPage() {
                 </ContainerTipo>
                 <ContainerCarcter>
                     <h2>Principais Características</h2>
-                    {/* <div> */}
+                    <hr/>
+                    <div>
                         <h4>Peso: </h4>
                         <span>69</span>
-                    {/* </div> */}
-                    <h4>Altura: </h4>
-                    <span>1,69</span>
+                    </div>
+                    <div>
+                        <h4>Altura: </h4>
+                        <span>1,69</span>
+                    </div>
                 </ContainerCarcter>
             </ContainerDetail>
         </div>

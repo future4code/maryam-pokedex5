@@ -2,7 +2,6 @@ import React from "react";
 import { HeaderContainer } from "./styles";
 import { useHistory } from "react-router";
 
-
 const Header = () => {
 
     const history = useHistory();

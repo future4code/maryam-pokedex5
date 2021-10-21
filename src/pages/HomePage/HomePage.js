@@ -10,7 +10,6 @@ import { GlobalContext } from "../../contexts/GlobalContext";
 
 
 function HomePage() {
-    const [id, setId] = useState("1")
     const { states, setters } = useContext(GlobalContext)
     const { pokemons ,pokemonDetails, pokemonsPokedex } = states
     const { setPokemons, setPokemonDetails, setPokemonPokedex } = setters
@@ -20,13 +19,25 @@ function HomePage() {
         getPokemons(setPokemons)
     }, [])
 
+    const addToPokedex = (poke) => {
+        const position = pokemonsPokedex.findIndex((item) => {
+            return item === poke.name;
+        })
+        const newPokemonsPokedex = [...pokemonsPokedex];
+        if (position === -1) {
+            newPokemonsPokedex.push(poke)
+            setPokemonPokedex(newPokemonsPokedex)
+        } 
+        console.log(pokemonsPokedex)
+    }
+
     const renderPokemons = pokemons.map((pokemon) => {
         return (
-            <SingleCardContainer>
+            <SingleCardContainer key={pokemon.name}>
                 <HomeCard pokemon={pokemon} key={pokemon.url} />
                 <p>{pokemon.name}</p>
-                <button onClick={() => goToDetails(history)}>Detalhes</button>
-                <button>Adicionar a Pokédex</button>
+                <button onClick={() => goToDetails(history, pokemon.name)}>Detalhes</button>
+                <button onClick={() => addToPokedex(pokemon)}>Adicionar a Pokédex</button>
             </SingleCardContainer>
         )
     })
@@ -35,6 +46,7 @@ function HomePage() {
         <div>
             <Header />
             <HomePageContainer>
+                {console.log(pokemonsPokedex)}
                 <h1>Base de Pokémons</h1>
                 <SelectCategory>
                     <option>Categoria</option>

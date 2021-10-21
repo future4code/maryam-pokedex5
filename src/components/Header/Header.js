@@ -4,10 +4,8 @@ import { useHistory } from "react-router";
 import { goToHome, goToPokedex } from "../../routes/Coordinator";
 
 const Header = () => {
-
     const history = useHistory();
 
-    console.log(history.location.pathname)
     return (
         <HeaderContainer>
             <a onClick={() => goToHome(history)}>

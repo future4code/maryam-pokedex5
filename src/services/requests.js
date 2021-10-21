@@ -12,7 +12,6 @@ export const getPokemons = (saveData) => {
 
 export const getDetailPokemon = (idUrl, set) => {
     axios.get(idUrl).then((res) => {
-        console.log(res)
         set(res.data.sprites.other.dream_world.front_default)
     }).catch((err) => {
         console.log(err)

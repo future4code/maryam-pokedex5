@@ -2,9 +2,6 @@ import { getDetailPokemon } from "../../services/requests";
 import { useState, useEffect } from "react";
 import ImagePokemon from './styles';
 
-
-
-
 const HomeCard = (props) => {
     const [imageDetail, setImageDetails] = useState('')
     useEffect(() => {

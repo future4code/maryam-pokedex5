@@ -3,14 +3,16 @@ import { useState, useEffect } from "react";
 import ImagePokemon from './styles';
 
 const HomeCard = (props) => {
-    const [imageDetail, setImageDetails] = useState('')
+    const [details, setDetails] = useState({})
     useEffect(() => {
-        getDetailPokemon(props.pokemon.url, setImageDetails)
+        getDetailPokemon(props.pokemon.url, setDetails)
     }, [])
+
+    const imagePokemon = details && details.sprites && details.sprites.other.dream_world.front_default
 
     return (
         <div>
-            <ImagePokemon src={imageDetail}/>
+            <ImagePokemon src={imagePokemon} alt={details.name}/>
         </div>
     )
 }

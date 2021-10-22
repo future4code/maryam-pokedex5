@@ -28,13 +28,15 @@ function HomePage() {
 
     const addToPokedex = (poke) => {
         const position = pokemonsPokedex.findIndex((item) => {
-            return item === poke.name;
+            return item.name === poke.name;
         })
         const newPokemonsPokedex = [...pokemonsPokedex];
         if (position === -1) {
             newPokemonsPokedex.push(poke)
             setPokemonPokedex(newPokemonsPokedex)
-        }
+            // localStorage.setItem('listPokedex', pokemonsPokedex)
+        } 
+
         console.log(pokemonsPokedex)
     }
 

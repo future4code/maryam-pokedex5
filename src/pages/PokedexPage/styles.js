@@ -38,24 +38,33 @@ export const PokemonContainer = styled.div `
     flex-direction: column;
     margin-left: 13%;
     
+    img {
+        max-height: 320px;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+`
+
+export const ListContainer = styled.div `
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-right: 10px;
+    height: 100%;
+    padding-top: 10px;
 `
 
 export const ListPokedexContainer = styled.div `
     display: flex;
     align-items: center;
-    width: 25%;
+    justify-content: space-around;
+    width: 100%;
     background-color: aliceblue;
-    justify-content: space-between;
     border-radius: 32px;
     padding: 0px 5px;
     margin-right: 1%;
-
-
-    img:nth-of-type(1) {
-        margin-bottom: 10px;
-    }
-
-    img:nth-of-type(2) {
-        width: 40px;
-    }
+    margin-bottom: 5px;
 `

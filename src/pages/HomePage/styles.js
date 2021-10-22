@@ -5,7 +5,8 @@ export const HomePageContainer = styled.div`
     flex-direction: column;
     align-items: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: #E3F2FD;
+    background-color: #e0bbbf;
+    margin-bottom: 50px;
 `
 
 export const CardsContainer = styled.div`

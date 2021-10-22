@@ -18,3 +18,11 @@ export const getDetailPokemon = (idUrl, set) => {
         console.log(err)
     })
 }
+
+export const getPokemonsTypes = (set) => {
+    axios.get(`https://pokeapi.co/api/v2/type`).then((res) => {
+        set(res.data.results)
+    }).catch((err) => {
+        console.log(err)
+    })
+}

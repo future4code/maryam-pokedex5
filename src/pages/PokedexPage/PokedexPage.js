@@ -15,15 +15,16 @@ function PokedexPage() {
     const [image , setImage] = useState("")
 
     const { states, setters } = useContext(GlobalContext)
-    const { pokemonDetails, pokemonsPokedex } = states
-    const { setPokemons, setPokemonDetails, setPokemonPokedex } = setters
+    const { pokemonDetails, pokemonsPokedex, pokemonsHome } = states
+    const { setPokemons, setPokemonDetails, setPokemonPokedex , setPokemonsHome } = setters
+    const [ imageContainer, setImageContainer ] = useState('')
     const history = useHistory()
 
 
     const renderPokemonsList = pokemonsPokedex.map((pokemon) => {
         return (
             <ListPokedexContainer key={pokemon.name}>
-                <DetailContainerList onClick={() => onClickImage(pokemon.sprites.other.dream_world.front_default)}>
+                <DetailContainerList onClick={() => onClickImage(pokemon)}>
                     <img src={pokemon.sprites.versions["generation-viii"].icons.front_default}/>
                     <p>{pokemon.name}</p>
                     <img src={pokeballWhiteIcon}/>
@@ -32,14 +33,41 @@ function PokedexPage() {
         )
     })
 
+    const removeFromPokedex = (pokemon) => {
+        const newPokemonsPokedex = [...pokemonsPokedex]
+        const index = pokemonsPokedex.findIndex(
+            (item) => item.name === pokemon.name
+        );
+
+        newPokemonsPokedex.splice(index, 1)
+        setPokemonPokedex(newPokemonsPokedex)
+
+        const newPokemons = [...pokemonsHome, pokemon];
+        const orderedPokemons = newPokemons.sort((a, b) => {
+            return a.id - b.id;
+        })
+        setPokemonsHome(orderedPokemons)
+        setImageContainer('')
+    }
+
     const CleanPokedex = () => {
         setPokemonPokedex([])
         getPokemons(setPokemons)
-        setImage("")
+        setImageContainer('')
     }
-    const onClickImage = (url) => {
-        setImage(url)
+
+    
+    const onClickImage = (pokemon) => {
+        setImageContainer(
+            <div>
+                <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
+                <button onClick={() => removeFromPokedex(pokemon)}>Remover da Pokédex</button>
+                <button onClick={goToDetails}>Detalhes</button> 
+            </div>
+        )
     }
+
+    console.log(typeof(imageContainer))
 
     return (
         <PokedexContext.Provider value={{image , setImage}}>
@@ -55,12 +83,7 @@ function PokedexPage() {
                 </BarContainer>
                 <MainContainer>
                     <PokemonContainer>
-                        {image ? 
-                        <div>
-                            <img src={image} alt={"Foto do Charizard"} />
-                            <button onClick={goToDetails}>Detalhes</button> 
-                        </div> : 
-                        "Clique em algum pokemon da lista ao lado!"}
+                        {imageContainer}
                     </PokemonContainer>
                     <ListContainer>
                         {renderPokemonsList}

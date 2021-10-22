@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import PokeDexList from "../../components/PokedexList/PokedexList";
 import { PokedexContext } from "../../contexts/PokedexContext";
+import { getPokemons } from "../../services/requests";
 
 
 function PokedexPage() {
@@ -31,6 +32,7 @@ function PokedexPage() {
 
     const CleanPokedex = () => {
         setPokemonPokedex([])
+        getPokemons(setPokemons)
     }
 
     return (

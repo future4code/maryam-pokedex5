@@ -4,19 +4,26 @@ import { useHistory } from "react-router";
 import Header from "../../components/Header/Header";
 import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory } from './styles';
 import { goToDetails } from '../../routes/Coordinator';
-import { getPokemons } from '../../services/requests';
+import { getPokemons, getDetailPokemon, getPokemonsTypes } from '../../services/requests';
 import HomeCard from '../../components/HomeCard/HomeCard';
 import { GlobalContext } from "../../contexts/GlobalContext";
+import { url } from "../../constants/url";
 
 
 function HomePage() {
     const { states, setters } = useContext(GlobalContext)
-    const { pokemons ,pokemonDetails, pokemonsPokedex } = states
+    const { pokemons, pokemonDetails, pokemonsPokedex } = states
     const { setPokemons, setPokemonDetails, setPokemonPokedex } = setters
     const history = useHistory()
+    const [categories, setCategories] = useState([])
+    const [category, setCategory] = useState('')
 
     useEffect(() => {
         getPokemons(setPokemons)
+    }, [])
+
+    useEffect(() => {
+        getPokemonsTypes(setCategories)
     }, [])
 
     const addToPokedex = (poke) => {
@@ -27,11 +34,15 @@ function HomePage() {
         if (position === -1) {
             newPokemonsPokedex.push(poke)
             setPokemonPokedex(newPokemonsPokedex)
-        } 
+        }
         console.log(pokemonsPokedex)
     }
 
-    const renderPokemons = pokemons.map((pokemon) => {
+    const renderPokemons = pokemons
+    // .filter((pokemon) => {
+    //     return pokemon.
+    // })
+    .map((pokemon) => {
         return (
             <SingleCardContainer key={pokemon.name}>
                 <HomeCard pokemon={pokemon} key={pokemon.url} />
@@ -42,15 +53,21 @@ function HomePage() {
         )
     })
 
+
+    const renderCategories = categories.map((categorie) => {
+        return(
+            <option key={categorie.name}>{categorie.name}</option>
+        )
+    })
+
     return (
         <div>
             <Header />
             <HomePageContainer>
-                {console.log(pokemonsPokedex)}
                 <h1>Base de Pokémons</h1>
                 <SelectCategory>
-                    <option>Categoria</option>
-                    <option>Fogo</option>
+                    <option>Selecione uma categoria</option>
+                    {renderCategories}
                 </SelectCategory>
                 <CardsContainer>
                     {renderPokemons}

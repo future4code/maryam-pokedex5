@@ -5,7 +5,25 @@ export const HeaderContainer = styled.header `
     align-items: center;
     justify-content: space-between;
     height: 70px;
-    border: 1px solid black;
     padding: 0 10px;
-    background-color: #DB5461;
+    background-color: #e3293b;
+`
+// #DB5461
+export const LogoPokeball = styled.img`
+    width: 45px;
+`
+export const LogoPokeDev = styled.img`
+    width: 160px;
+`
+
+export const IrParaPokedex = styled.img`
+    width: 160px;
+`
+
+export const GoToPokedexContainer = styled.a`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 215px;
+    margin-right: 15px;
 `

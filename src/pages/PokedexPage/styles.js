@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const PokedexPageContainer = styled.div `
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     background-image: linear-gradient(110deg,rgb(104 105 99 / 38%) 54.5%,#cc3342 50%, #cc3342 68%, #db5461 68%);
     padding-top: 1.5%;
 `

@@ -6,7 +6,11 @@ export const HomePageContainer = styled.div`
     align-items: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: #e0bbbf;
-    margin-bottom: 50px;
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 50px;
+    color: #1C3144;
+    text-shadow: 1px 1px #1C3144;
 `
 
 export const CardsContainer = styled.div`
@@ -23,34 +27,27 @@ export const SingleCardContainer = styled.div`
     background-color: #1C3144;
     border-radius: 30px;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
     padding: 15px;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     box-shadow: 5px 5px 10px 2px #1C3144;
 
-    button{
-        margin-bottom: 10px;
-	background-color:#cfd4c5;
-	border-radius:28px;
-	border:1px solid #cfd4c5;
-	display:inline-block;
-	cursor:pointer;
-	color:#000000;
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-	font-size:14px;
-	padding:8px 34px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #4c574b;
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-    &:hover {
-	    background-color:#a6ab9c;
-}
-    &:active {
-	    position:relative;
-	    top:1px;
-}
+    a{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 210px;
+    height: 38px;
+    cursor:pointer;
     }
 `
 
@@ -79,3 +76,33 @@ export const SelectCategory = styled.select`
 }
 `
 
+export const PokeballImage = styled.img`
+    width: 30px;
+`
+
+export const PokedexImage = styled.a`
+    width: auto;
+
+    &:hover {
+    img{
+        width: 250px;
+    }
+}
+    &:active {
+    position:relative;
+    top:1px;
+}
+`
+export const DetalhesImage = styled.a`
+    width: auto;
+
+    &:hover {
+    img{
+        width: 100px;
+    }
+}
+    &:active {
+    position:relative;
+    top:1px;
+}
+`

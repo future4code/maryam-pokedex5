@@ -21,9 +21,7 @@ const Header = () => {
             : 
             <GoToPokedexContainer onClick={() => goToPokedex(history)}>
                 <IrParaPokedex src={pokedex}/>
-                {/* <p>Ir para PokéDex</p> */}
                 <LogoPokeball src={pokeball} alt="logo" />
-                
             </GoToPokedexContainer>
             }
         </HeaderContainer>

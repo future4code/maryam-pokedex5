@@ -23,16 +23,15 @@ function PokedexPage() {
 
     const renderPokemonsList = pokemonsPokedex.map((pokemon) => {
         return (
-            <ListPokedexContainer>
+            <ListPokedexContainer key={pokemon.name}>
                 <PokeDexList pokemon={pokemon}/>
             </ListPokedexContainer>
         )
     })
 
-    console.log(pokemonsPokedex)
-    // useEffect(() => {
-    //     pokemonsPokedex
-    // })
+    const CleanPokedex = () => {
+        setPokemonPokedex([])
+    }
 
     return (
         <PokedexContext.Provider value={{image , setImage}}>
@@ -40,6 +39,7 @@ function PokedexPage() {
             <PokedexPageContainer>
                 <BarContainer>
                     <h1>Pokédex</h1>
+                    <button onClick={CleanPokedex}>Limpar Pokédex</button>
                     <NumContainer>
                         <img src={pokeballIcon} />
                         <p>{pokemonsPokedex.length}</p>

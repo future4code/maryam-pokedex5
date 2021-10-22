@@ -49,8 +49,8 @@ function PokedexPage() {
                     <PokemonContainer>
                         {image ? 
                         <div>
-                        <img src={image} alt={"Foto do Charizard"} />
-                        <button onClick={goToDetails}>Detalhes</button> 
+                            <img src={image} alt={"Foto do Charizard"} />
+                            <button onClick={goToDetails}>Detalhes</button> 
                         </div> : 
                         "Clique em algum pokemon da lista ao lado!"}
                     </PokemonContainer>

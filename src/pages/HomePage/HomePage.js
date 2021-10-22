@@ -17,15 +17,9 @@ function HomePage() {
     const history = useHistory()
     const [categories, setCategories] = useState([])
     
-
-    // useEffect(() => {
-    //     getPokemons(setPokemons)
-    // }, [])
-
     useEffect(() => {
         getPokemonsTypes(setCategories)
     }, [])
-
 
 
     const addToPokedex = (poke) => {
@@ -49,7 +43,6 @@ function HomePage() {
         .map((pokemon) => {
             return (
                 <SingleCardContainer key={pokemon.name}>
-                    {/* <HomeCard pokemon={pokemon} key={pokemon.url} /> */}
                     <ImagePokemon src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name}/>
                     <p>{pokemon.name}</p>
                     <div>

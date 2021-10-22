@@ -5,7 +5,11 @@ export const ContainerDetail = styled.div`
     height: 90vh;
     border: 1px solid black;
     background-color: #E3F2FD;
-    
+
+    h1{
+        text-transform: capitalize;
+        text-align: center;
+    }    
 `
 
 export const CardPhoto = styled.div`
@@ -34,7 +38,7 @@ export const CardPoderes = styled.div`
     background-color: #FAFAFA;
     border-radius: 20px;
     box-shadow: 4px 5px gray;
-    padding-left: 5px;
+    padding-left: 1vw;
     width: 40vh;
     height: 50vh;
     top: -56vh;
@@ -59,6 +63,7 @@ export const CardPoderes = styled.div`
 
 export const ContainerTipo = styled.div`
     background-color: #1C3144;
+    text-transform: capitalize;
     color: white;
     display: flex;
     text-align: center;
@@ -90,11 +95,8 @@ export const TitleStatus = styled.div`
 `
 
 export const ContainerCarcter = styled.div`
-    display: flex;
     background-color: #FAFAFA;
-    flex-direction: column;
     position: relative;
-    text-align: center;
     left: 53vw;
     top: -54vw;
     border: 1px solid black;
@@ -102,6 +104,18 @@ export const ContainerCarcter = styled.div`
     box-shadow: 4px 5px gray;
     width: 40vh;
     height: 46vh;
+
+    div{
+        margin: 9vh 1vw;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    h4{
+        display: inline;
+    }
 `
 
 export default {ContainerDetail, CardPhoto, CardPoderes, ContainerTipo, TitleStatus, ContainerCarcter};

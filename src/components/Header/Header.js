@@ -6,7 +6,6 @@ import pokedev from '../../images/PokeDev.png'
 import pokeball from '../../images/pokeball-icon.png';
 import pokedex from '../../images/Ir-para-Pokedex.png'
 
-
 const Header = () => {
     const history = useHistory();
 

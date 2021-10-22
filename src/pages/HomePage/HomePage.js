@@ -4,7 +4,6 @@ import Header from "../../components/Header/Header";
 import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory, PokeballImage, PokedexImage, DetalhesImage, ImagePokemon } from './styles';
 import { goToDetails } from '../../routes/Coordinator';
 import { getPokemons, getDetailPokemon, getPokemonsTypes } from '../../services/requests';
-import HomeCard from '../../components/HomeCard/HomeCard';
 import { GlobalContext } from "../../contexts/GlobalContext";
 import pokedex from '../../images/Adicionar-a-Pokedex.png';
 import detalhes from '../../images/Detalhes.png'
@@ -12,8 +11,8 @@ import detalhes from '../../images/Detalhes.png'
 
 function HomePage() {
     const { states, setters } = useContext(GlobalContext)
-    const { pokemons, pokemonsPokedex, pokemonsHome } = states
-    const { setPokemons, setPokemonPokedex, setPokemonsHome } = setters
+    const { pokemonsPokedex, pokemonsHome } = states
+    const { setPokemonPokedex, setPokemonsHome } = setters
     const history = useHistory()
     const [categories, setCategories] = useState([])
     
@@ -43,8 +42,8 @@ function HomePage() {
         .map((pokemon) => {
             return (
                 <SingleCardContainer key={pokemon.name}>
-                    <ImagePokemon src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name}/>
                     <p>{pokemon.name}</p>
+                    <ImagePokemon src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name}/>
                     <div>
                         <PokedexImage onClick={() => addToPokedex(pokemon)}>
                             <img src={pokedex} />

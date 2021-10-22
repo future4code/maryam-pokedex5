@@ -68,6 +68,9 @@ export const ListPokedexContainer = styled.div `
     padding: 0px 5px;
     margin-right: 1%;
     margin-bottom: 5px;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `
 
 export const DetailContainerList = styled.div `

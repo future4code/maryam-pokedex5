@@ -34,6 +34,7 @@ export const SingleCardContainer = styled.div`
     color: white;
     font-size: 16px;
     box-shadow: 5px 5px 10px 2px #1C3144;
+    text-transform: capitalize;
 
     div{
         display: flex;

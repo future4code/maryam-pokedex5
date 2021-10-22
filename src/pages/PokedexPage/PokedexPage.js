@@ -55,19 +55,17 @@ function PokedexPage() {
         getPokemons(setPokemons)
         setImageContainer('')
     }
-
     
     const onClickImage = (pokemon) => {
         setImageContainer(
             <div>
                 <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
                 <button onClick={() => removeFromPokedex(pokemon)}>Remover da Pokédex</button>
-                <button onClick={goToDetails}>Detalhes</button> 
+                <button onClick={() => goToDetails(history, pokemon.name)}>Detalhes</button> 
             </div>
         )
     }
 
-    console.log(typeof(imageContainer))
 
     return (
         <PokedexContext.Provider value={{image , setImage}}>

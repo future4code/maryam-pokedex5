@@ -7,6 +7,7 @@ export const ContainerDetail = styled.div`
     background-color: #E3F2FD;
 
     h1{
+        text-transform: capitalize;
         text-align: center;
     }    
 `
@@ -62,6 +63,7 @@ export const CardPoderes = styled.div`
 
 export const ContainerTipo = styled.div`
     background-color: #1C3144;
+    text-transform: capitalize;
     color: white;
     display: flex;
     text-align: center;

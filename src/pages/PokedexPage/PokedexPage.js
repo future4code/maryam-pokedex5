@@ -2,21 +2,20 @@ import React from "react";
 import { useHistory } from "react-router";
 import Header from "../../components/Header/Header";
 import pokeballIcon from "../../images/pokeball-icon.png"
-import { BarContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer } from "./styles";
+import { BarContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, DetailContainerList } from "./styles";
 import pokeballWhiteIcon from "../../images/pokeballWhite-icon.png";
 import { goToDetails } from '../../routes/Coordinator';
 import { GlobalContext } from "../../contexts/GlobalContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useContext } from "react";
-import PokeDexList from "../../components/PokedexList/PokedexList";
 import { PokedexContext } from "../../contexts/PokedexContext";
-
+import { getPokemons } from "../../services/requests";
 
 function PokedexPage() {
     const [image , setImage] = useState("")
 
     const { states, setters } = useContext(GlobalContext)
-    const { pokemons, pokemonDetails, pokemonsPokedex } = states
+    const { pokemonDetails, pokemonsPokedex } = states
     const { setPokemons, setPokemonDetails, setPokemonPokedex } = setters
     const history = useHistory()
 
@@ -24,13 +23,22 @@ function PokedexPage() {
     const renderPokemonsList = pokemonsPokedex.map((pokemon) => {
         return (
             <ListPokedexContainer key={pokemon.name}>
-                <PokeDexList pokemon={pokemon}/>
+                <DetailContainerList onClick={() => onClickImage(pokemon.sprites.other.dream_world.front_default)}>
+                    <img src={pokemon.sprites.versions["generation-viii"].icons.front_default}/>
+                    <p>{pokemon.name}</p>
+                    <img src={pokeballWhiteIcon}/>
+                </DetailContainerList>
             </ListPokedexContainer>
         )
     })
 
     const CleanPokedex = () => {
         setPokemonPokedex([])
+        getPokemons(setPokemons)
+        setImage("")
+    }
+    const onClickImage = (url) => {
+        setImage(url)
     }
 
     return (

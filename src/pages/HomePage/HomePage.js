@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useHistory } from "react-router";
 import Header from "../../components/Header/Header";
-import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory, PokeballImage, PokedexImage, DetalhesImage } from './styles';
+import { HomePageContainer, CardsContainer, SingleCardContainer, SelectCategory, PokeballImage, PokedexImage, DetalhesImage, ImagePokemon } from './styles';
 import { goToDetails } from '../../routes/Coordinator';
 import { getPokemons, getDetailPokemon, getPokemonsTypes } from '../../services/requests';
-import HomeCard from '../../components/HomeCard/HomeCard';
 import { GlobalContext } from "../../contexts/GlobalContext";
 import pokedex from '../../images/Adicionar-a-Pokedex.png';
 import detalhes from '../../images/Detalhes.png'
@@ -12,26 +11,20 @@ import detalhes from '../../images/Detalhes.png'
 
 function HomePage() {
     const { states, setters } = useContext(GlobalContext)
-    const { pokemons, pokemonsPokedex } = states
-    const { setPokemons, setPokemonPokedex } = setters
+    const { pokemonsPokedex, pokemonsHome } = states
+    const { setPokemonPokedex, setPokemonsHome } = setters
     const history = useHistory()
     const [categories, setCategories] = useState([])
     
-
-    // useEffect(() => {
-    //     getPokemons(setPokemons)
-    // }, [])
-
     useEffect(() => {
         getPokemonsTypes(setCategories)
     }, [])
 
 
-
     const addToPokedex = (poke) => {
         const newPokemonsPokedex = [...pokemonsPokedex];
-        const newPokemons = [...pokemons]
-        const index = pokemons.indexOf(poke)
+        const newPokemons = [...pokemonsHome]
+        const index = pokemonsHome.indexOf(poke)
         const position = pokemonsPokedex.findIndex((item) => {
             return item.name === poke.name;
         })
@@ -41,16 +34,16 @@ function HomePage() {
         }
         if (index > -1) {
             newPokemons.splice(index, 1)
-            setPokemons([...newPokemons])
+            setPokemonsHome([...newPokemons])
         }
     }
 
-    const renderPokemons = pokemons
+    const renderPokemons = pokemonsHome
         .map((pokemon) => {
             return (
                 <SingleCardContainer key={pokemon.name}>
-                    <HomeCard pokemon={pokemon} key={pokemon.url} />
                     <p>{pokemon.name}</p>
+                    <ImagePokemon src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name}/>
                     <div>
                         <PokedexImage onClick={() => addToPokedex(pokemon)}>
                             <img src={pokedex} />

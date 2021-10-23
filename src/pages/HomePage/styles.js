@@ -50,6 +50,12 @@ export const SingleCardContainer = styled.div`
     height: 38px;
     cursor:pointer;
     }
+
+    &:hover{
+        position:relative;
+	    bottom:3px;
+        right: 3px;
+    }
 `
 
 export const SelectCategory = styled.select`
@@ -63,7 +69,7 @@ export const SelectCategory = styled.select`
 	color:#ffffff;
 	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	font-size:18px;
-	padding:6px 51px;
+	padding:6px 15px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #8f313a;
 
@@ -112,4 +118,23 @@ export const ImagePokemon = styled.img`
     width: 100px;
     max-height: 120px;
     height: 120px;
+`
+
+export const PokemonNameCard = styled.p`
+    background-color: #52af59;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    height: 28px;
+    border-radius: 19px;
+    padding-left: 50px;
+    padding-right: 50px;
+    align-self: flex-start;
+    margin-left: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 2px 2px #296b37;
 `

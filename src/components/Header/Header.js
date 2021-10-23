@@ -12,7 +12,6 @@ const Header = () => {
     return (
         <HeaderContainer>
             <a onClick={() => goToHome(history)}>
-                
                 <LogoPokeDev src={pokedev} />
             </a>
             {history.location.pathname === "/pokedex" 

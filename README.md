@@ -15,7 +15,7 @@ https://pokedev-labenu.surge.sh/
 ### LOGO
 ![PokeDev 905fe1d0](https://user-images.githubusercontent.com/84817937/138535643-9a88817a-2318-41d7-b089-43e49a70d65e.png)
 
-## PALETA DE CORES
+### PALETA DE CORES
 https://coolors.co/1c3144-fafafa-686963-e3f2fd-db5461
 
 ### NOME DOS INTEGRANTES

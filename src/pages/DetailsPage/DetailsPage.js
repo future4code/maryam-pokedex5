@@ -68,11 +68,11 @@ const DetailsPage = () => {
                     <hr/>
                     <div>
                         <h4>Peso: </h4>
-                        <span>{pokemonDetails.weight} Kg</span>
+                        <span>{((pokemonDetails.weight) / 10).toFixed(1)} Kg</span>
                     </div>
                     <div>
                         <h4>Altura: </h4>
-                        <span>{pokemonDetails.height} m</span>
+                        <span>{((pokemonDetails.height) / 10).toFixed(1)} m</span>
                     </div>
                 </ContainerCarcter>
             </ContainerDetail>

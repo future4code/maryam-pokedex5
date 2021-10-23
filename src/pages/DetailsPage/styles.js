@@ -4,7 +4,8 @@ export const ContainerDetail = styled.div`
     width: 100vw;
     height: 90vh;
     border: 1px solid black;
-    background-color: #E3F2FD;
+    background-color: #e0bbbf;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
     h1{
         text-transform: capitalize;
@@ -14,7 +15,6 @@ export const ContainerDetail = styled.div`
 
 export const CardPhoto = styled.div`
     display: flex;
-    border: 1px solid black;
     background-color: whitesmoke;
     border-radius: 20px;
     box-shadow: 4px 5px gray;

@@ -52,9 +52,10 @@ export const SingleCardContainer = styled.div`
     }
 
     &:hover{
+        transition: all 800ms;
+        transform: scale(1.05);
         position:relative;
-	    bottom:3px;
-        right: 3px;
+        box-shadow: 5px 5px 10px 2px #e3293b;
     }
 `
 
@@ -92,7 +93,8 @@ export const PokedexImage = styled.a`
 
     &:hover {
     img{
-        width: 250px;
+        transition: all 600ms;
+        transform: scale(1.1);
     }
 }
     &:active {
@@ -105,7 +107,8 @@ export const DetalhesImage = styled.a`
 
     &:hover {
     img{
-        width: 100px;
+        transition: all 600ms;
+        transform: scale(1.1);
     }
 }
     &:active {

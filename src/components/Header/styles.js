@@ -14,7 +14,8 @@ export const LogoPokeball = styled.img`
     cursor: pointer;
 
     &:hover{
-        width: 50px;
+        transition: all 600ms;
+        transform: scale(1.1);
     }
 `
 export const LogoPokeDev = styled.img`
@@ -22,7 +23,8 @@ export const LogoPokeDev = styled.img`
     cursor: pointer;
 
     &:hover{
-        width: 170px;
+        transition: all 600ms;
+        transform: scale(1.1);
     }
 
     &:active {
@@ -35,7 +37,8 @@ export const IrParaPokedex = styled.img`
     width: 160px;
     cursor: pointer;
     &:hover{
-        width: 170px;
+        transition: all 600ms;
+        transform: scale(1.1);
     }
 `
 

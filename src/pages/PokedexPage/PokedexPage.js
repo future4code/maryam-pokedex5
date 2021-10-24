@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import Header from "../../components/Header/Header";
 import pokeballIcon from "../../images/pokeball-icon.png"
-import { BarContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, DetailContainerList } from "./styles";
+import { BarContainer, PokedexPageContainer, NumContainer, MainContainer, PokemonContainer, ListPokedexContainer, ListContainer, DetailContainerList, Buttons, CartPokedex} from "./styles";
 import pokeballWhiteIcon from "../../images/pokeballWhite-icon.png";
 import { goToDetails } from '../../routes/Coordinator';
 import { GlobalContext } from "../../contexts/GlobalContext";
@@ -10,6 +10,10 @@ import { useState } from "react";
 import { useContext } from "react";
 import { PokedexContext } from "../../contexts/PokedexContext";
 import { getPokemons } from "../../services/requests";
+import detalhes from "../../images/Detalhes.png"
+import remover from "../../images/Remover-da-pokedex.png"
+import pokedex from "../../images/Pokedex.png"
+import limpar from "../../images/Limpar-PokedeX.png"
 
 function PokedexPage() {
     const [image , setImage] = useState("")
@@ -58,11 +62,13 @@ function PokedexPage() {
     
     const onClickImage = (pokemon) => {
         setImageContainer(
-            <div>
+            <CartPokedex>
                 <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
-                <button onClick={() => removeFromPokedex(pokemon)}>Remover da Pokédex</button>
-                <button onClick={() => goToDetails(history, pokemon.name)}>Detalhes</button> 
-            </div>
+                <Buttons>
+                    <a onClick={() => removeFromPokedex(pokemon)}><img src={remover} alt="Remover" /></a>
+                    <a onClick={() => goToDetails(history, pokemon.name)}><img src={detalhes} alt="Detalhes"/></a> 
+                </Buttons>
+            </CartPokedex>
         )
     }
 
@@ -72,8 +78,8 @@ function PokedexPage() {
             <Header />
             <PokedexPageContainer>
                 <BarContainer>
-                    <h1>Pokédex</h1>
-                    <button onClick={CleanPokedex}>Limpar Pokédex</button>
+                    <img src={pokedex} alt='Pokédex'/>
+                    <a onClick={CleanPokedex}><img src={limpar} alt='Limpar Tela'/></a>
                     <NumContainer>
                         <img src={pokeballIcon} />
                         <p>{pokemonsPokedex.length}</p>
